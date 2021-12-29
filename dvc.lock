@@ -32,3 +32,19 @@ stages:
     - path: artifacts02.txt
       md5: 509c7c10496555f3ab4d516da39af3a3
       size: 17
+  load_data:
+    cmd: python3 src/stage_01_load_save.py --config=config/config.yaml
+    deps:
+    - path: config/config.yaml
+      md5: 663482e1788e277c0dfcce4655364de0
+      size: 199
+    - path: src/stage_01_load_save.py
+      md5: 988ef9ee07a10d8ff6fab412fcd37d0f
+      size: 1027
+    - path: src/utils/all_utils.py
+      md5: 8f337613effb49a4445905d3bd1749a8
+      size: 390
+    outs:
+    - path: artifacts/raw_local_dir/data.csv
+      md5: 7d814a1bda02145efe703f4e1c01847a
+      size: 91999

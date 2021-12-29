@@ -1,21 +1,9 @@
 stages:
-  stage1:
-    cmd: python3 stage_1.py
+  load_data:
+    cmd: python3 src/stage_01_load_save.py --config=config/config.yaml
     deps:
-      - stage_1.py
+      - src/stage_01_load_save.py
+      - src/utils/all_utils.py
+      - config/config.yaml
     outs:
-      - artifacts01.txt
-
-  stage2:
-    cmd: python3 stage_2.py
-    deps:
-      - artifacts01.txt
-      - stage_2.py
-
-  stage3:
-    cmd: python3 stage_3.py
-    deps:
-      - artifacts01.txt
-      - stage_3.py
-    outs:
-      - artifacts02.txt
+      - artifacts/raw_local_dir/data.csv
